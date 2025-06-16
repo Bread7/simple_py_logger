@@ -12,12 +12,12 @@ from src import logger
 
 
 # For main Logger class
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def logger_class():
     yield logger.Logger("TESTER")
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def logger_class_error():
     yield logger.Logger("ERROR_TESTER", "/fake/path", "error_")
 

@@ -21,13 +21,21 @@ Output:
                              /<path_to>/src/logger.py + MESSAGE: bug is found
 ```
 
+The logger class contains 2 dictionary object **formatters** and **handlers** which allows storage of their custom object types.
+
+A formatter should be created first if needed. Subsequently, attached the formatter into the handler to have your custom output format. Use [helpers](##handler_helpers) for some handler creation functions or you can create your own custom handlers.
+
+Any logger that are instantiated would have [defaults](#Defaults) and custom formatter/handler added into the list will not be reflected in the current instance.
+
+Use `setup_logger()` or manually add them via `add_handler_logger()` into the existing logger instance.
+
 # Defaults
 
 After initialisation of class, there are some default formatter and handlers in place to ease setup.
 
-Formatters would have a key-Value pair of `DEFAULT_FORMATTER` and `{name}_{asctime} LEVEL: {levelname} - {pathname} + MESSAGE: {message}`
+Formatters would have a key-Value pair of **DEFAULT_FORMATTER** and `{name}_{asctime} LEVEL: {levelname} - {pathname} + MESSAGE: {message}`
 
-Handlers would make use of `DEFAULT_FORMATTER` and create 2 Key-Value handlers for `console` and `file` logging.
+Handlers would make use of **DEFAULT_FORMATTER** and create 2 Key-Value handlers for _console_ and _file_ logging.
 
 # APIs
 
@@ -142,3 +150,7 @@ def create_http_handler(
 ) -> log_handlers.HTTPHandler
 
 ```
+
+# Run Tests
+
+From root dir of the project run `uv run pytest`.

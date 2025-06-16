@@ -51,6 +51,8 @@ def _std_log_level(log_level_str: str | None) -> int:
     """
     if log_level_str is None:
         log_level_str = "DEBUG"
+    if type(log_level_str) is not str:
+        log_level_str = "DEBUG"
     match log_level_str.upper():
         case "DEBUG":
             return logging.DEBUG

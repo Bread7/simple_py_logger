@@ -16,7 +16,16 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
+# addopts = "-v -s --cov --cov-report term-missing --cov-report xml:cov.xml"
+addopts = [
+    "--strict-config",
+    "-v",
+    "-rA",
+]
 pythonpath = [
     ".",
     "src",
+]
+testpaths = [
+    "test/pytest",
 ]
