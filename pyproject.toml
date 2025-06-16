@@ -1,5 +1,5 @@
 [project]
-name = "simple-py-logger"
+name = "simple_py_logger"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,4 +7,25 @@ requires-python = ">=3.13"
 dependencies = [
     "pydantic>=2.11.5",
     "rich>=14.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.135.7",
+    "pytest>=8.4.0",
+]
+
+[tool.pytest.ini_options]
+# addopts = "-v -s --cov --cov-report term-missing --cov-report xml:cov.xml"
+addopts = [
+    "--strict-config",
+    "-v",
+    "-rA",
+]
+pythonpath = [
+    ".",
+    "src",
+]
+testpaths = [
+    "test/pytest",
 ]

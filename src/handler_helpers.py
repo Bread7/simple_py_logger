@@ -54,6 +54,9 @@ def create_rich_console_handler(
         formatter      :    A formatter instance to format message for handler.
         markup         :    Set to enable markup formatting.
         rich_tracebacks:    Set to output more details during tracebacks.
+
+    Returns:
+        RichHandler    :    A rich handler instance to attach to logger.
     """
     rich_console_h = RichHandler(
         level=log_level_int,
